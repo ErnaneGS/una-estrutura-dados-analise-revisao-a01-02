@@ -9,13 +9,13 @@ class ProdutoService
         Produto produto = new Produto();
         produto = ReceberDadosProduto(produto);
         produtos.Add(produto);
-        Console.WriteLine("PRODUTO CADASTRADO COM SUCESSO!");
+        Console.WriteLine("PRODUTO ADICIONADO COM SUCESSO!");
     }
 
     public static void Remover(List<Produto> produtos)
     {
-        Console.WriteLine(" - Informe o código de barras do produto que deseja remover:");
         int codigo;
+        Console.WriteLine(" - Informe o código de barras do produto que deseja remover:");
         int.TryParse(Console.ReadLine(), out codigo);
         Produto produtoParaRemover = produtos.FirstOrDefault(p => p.Codigo == codigo);
 
@@ -25,26 +25,26 @@ class ProdutoService
         }
         else
         {
-            Console.WriteLine("Produto não encontrado com este código.");
+            Console.WriteLine("PRODUTO NÃO ENCONTRADO COM ESTE CÓDIGO.");
         }
         Console.WriteLine("PRODUTO REMOVIDO COM SUCESSO!");
     }
 
     public static void Atualizar(List<Produto> produtos)
     {
-        Console.WriteLine(" - Informe o código de barras do produto que deseja atualizar:");
         int codigo;
+        Console.WriteLine(" - Informe o código de barras do produto que deseja atualizar:");
         int.TryParse(Console.ReadLine(), out codigo);
 
         Produto produtoParaAtualizar = produtos.FirstOrDefault(p => p.Codigo == codigo);
 
         if (produtoParaAtualizar == null)
         {
-            Console.WriteLine("Produto não encontrado com este código.");
+            Console.WriteLine("PRODUTO NÃO ENCONTRADO COM ESTE CÓDIGO.");
         }
         else
         {
-            Console.WriteLine("Atualize as informações do produto:");
+            Console.WriteLine(" - Atualize as informações do produto:");
             produtoParaAtualizar = ReceberDadosProduto(produtoParaAtualizar);
 
             Console.WriteLine("PRODUTO ATUALIZADO COM SUCESSO!");
@@ -79,7 +79,7 @@ class ProdutoService
                 }
                 else
                 {
-                    Console.WriteLine("Produto não encontrado com este código.");
+                    Console.WriteLine("PRODUTO NÃO ENCONTRADO COM ESTE CÓDIGO.");
                 }
                 break;
             case "3":
@@ -110,7 +110,7 @@ class ProdutoService
     {
         if (produtos.Count == 0)
         {
-            Console.WriteLine("Não existe produtos no estoque.");
+            Console.WriteLine("NÃO EXISTE PRODUTOS NO ESTOQUE.");
             return;
         }
 
@@ -189,7 +189,7 @@ class ProdutoService
     {
         if (produtos.Count == 0)
         {
-            Console.WriteLine("Não foi encontrado produtos com estas infomações.");
+            Console.WriteLine("NÃO FOI ENCONTRADO PRODUTOS COM AS INFORMAÇÕES INSERIDAS.");
             return;
         }
 
