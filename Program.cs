@@ -19,6 +19,7 @@ class Program
             Console.WriteLine("3 - Localizar um produto");
             Console.WriteLine("4 - Calcular valor total do estoque");
             Console.WriteLine("5 - Emitir relatório de produtos a vencer");
+            Console.WriteLine("6 - Remover um produto");
             Console.WriteLine("0 - Encerrar aplicação");
 
             string opcao = Console.ReadLine() ?? "";
@@ -42,6 +43,9 @@ class Program
                     break;
                 case "5":
                     ProdutoService.RelatorioValidadeProdutos(produtos);
+                    break;
+                case "6":
+                    ProdutoService.Remover(produtos);
                     break;
                 default:
                     Console.WriteLine("---> Opção inválida!");

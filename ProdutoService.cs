@@ -12,6 +12,24 @@ class ProdutoService
         Console.WriteLine("PRODUTO CADASTRADO COM SUCESSO!");
     }
 
+    public static void Remover(List<Produto> produtos)
+    {
+        Console.WriteLine(" - Informe o código de barras do produto que deseja remover:");
+        int codigo;
+        int.TryParse(Console.ReadLine(), out codigo);
+        Produto produtoParaRemover = produtos.FirstOrDefault(p => p.Codigo == codigo);
+
+        if (produtoParaRemover != null)
+        {
+            produtos.Remove(produtoParaRemover);
+        }
+        else
+        {
+            Console.WriteLine("Produto não encontrado com este código.");
+        }
+        Console.WriteLine("PRODUTO REMOVIDO COM SUCESSO!");
+    }
+
     public static void Atualizar(List<Produto> produtos)
     {
         Console.WriteLine(" - Informe o código de barras do produto que deseja atualizar:");
