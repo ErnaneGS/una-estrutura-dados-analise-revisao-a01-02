@@ -90,7 +90,17 @@ class ProdutoService
 
     public static void RelatorioValidadeProdutos(List<Produto> produtos)
     {
-        Console.WriteLine("\nTest:");
+        if (produtos.Count == 0)
+        {
+            Console.WriteLine("Não existe produtos no estoque.");
+            return;
+        }
+
+        List<Produto> produtosOrdenados = produtos.OrderBy(p => p.DataValidade).ToList();
+
+        Console.WriteLine("Relatório de Produtos ordenados pela data de Validade:");
+        ImprimirListaDeProdutos(produtosOrdenados);
+
     }
 
     public static Produto ReceberDadosProduto(Produto produto)
