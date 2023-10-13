@@ -84,7 +84,8 @@ class ProdutoService
 
     public static void CalcularTotalEstoque(List<Produto> produtos)
     {
-        Console.WriteLine("\nTest:");
+        decimal valorTotal = produtos.Sum(p => p.Quantidade * p.PrecoUnitario);
+        Console.WriteLine($"O valor total do estoque é: R${valorTotal:F2}");
     }
 
     public static void RelatorioValidadeProdutos(List<Produto> produtos)
@@ -102,7 +103,7 @@ class ProdutoService
 
         do
         {
-            Console.WriteLine(" - Informe o nome do produto a ser adicionado ao estoque:");
+            Console.WriteLine(" - Informe o nome do produto:");
             nome = Console.ReadLine();
 
             if (string.IsNullOrEmpty(nome))
